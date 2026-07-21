@@ -1,0 +1,2 @@
+copr.fedorainfracloud.org/rivenirvana/kitty
+copr.fedorainfracloud.org/varlad/yazi

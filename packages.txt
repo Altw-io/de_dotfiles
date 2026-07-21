@@ -1,0 +1,6 @@
+yazi
+fastfetch
+fzf
+kitty
+wofi
+neovim

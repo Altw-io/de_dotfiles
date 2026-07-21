@@ -1,0 +1,15 @@
+[opener]
+edit = [
+  { run = 'nvim "$@"', block = true, for = "unix" },
+]
+
+[mgr]
+ratio = [1, 2, 2]
+
+[preview]
+max_width = 2560
+max_height = 1600
+
+[tasks]
+image_bound = [10000, 10000]
+image_alloc = 536870912
