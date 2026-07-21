@@ -1,22 +1,21 @@
-# Fedora 43 DE 配置展示
+# Fedora 43: DE 配置展示
 
-![演示视频](https://github.com/user-attachments/assets/d64de3c8-a1bf-42d3-92aa-1cf49f25321c)
+<video src="https://github.com/user-attachments/assets/a7a4d6f9-1075-4858-9722-df522a05bc73" controls width="100%"></video>
 
-（窗口拖拽和最小化时的果冻特效因为与录屏软件冲突，所以没有在这里展示）
+窗口拖拽和最小化时有果冻特效的扩展因为与录屏软件冲突，所以没有在这里展示。
 
-# Fedora 43：DE 配置安装
+# Fedora 43: DE 配置安装
 
-本仓库包含我在 Fedora 43 上的部分桌面环境配置，涵盖：
+本仓库包含我在 Fedora 43 上的部分桌面环境配置，以便后续迁移系统时可以一键恢复。
 
-- **软件包列表**：`packages.txt`（通过 `dnf` 安装）
-- **配置文件**：`kitty`、`yazi`、`fastfetch`、`wofi` 以及 Neovim（LazyVim） 的完整配置
-- **GNOME 扩展**：所有扩展本体 + 设置（`dconf`）
-- **字体**：FiraCode Nerd Font
-- **自定义 Bash 函数**：`yy`（Yazi 自动切换目录）、`ff`（Fastfetch 随机 Logo）
+| 项目 | 说明 |
+| :--- | :--- |
+| **配置文件** | 包含了对 kitty、yazi、fastfetch、wofi、Neovim（LazyVim）的配置 |
+| **GNOME 扩展** | 所有扩展本体 + 设置 |
+| **字体** | FiraCode Nerd Font |
+| **自定义 Bash 函数** | `yy`、`fo`、`ff` |
 
-所有配置文件均通过复制方式恢复，恢复后可安全删除本仓库目录，系统环境完全独立。
-
----
+## 安装流程
 
 1. 克隆仓库：
 
@@ -25,11 +24,11 @@
    cd ~/de_dotfiles
    ```
 
-2. 执行恢复脚本：
+2. 执行安装脚本：
 
    ``` bash
    chmod +x install.sh
    ./install.sh
    ```
 
-3. 脚本执行完毕后，重启 GNOME Shell 以生效扩展。
+3. 脚本执行完毕后，重启 GNOME Shell 以生效扩展，可安全删除本仓库目录。
