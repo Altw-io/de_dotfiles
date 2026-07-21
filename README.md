@@ -1,6 +1,7 @@
 # Fedora 43 DE 配置展示
 
-https://github.com/user-attachments/assets/d64de3c8-a1bf-42d3-92aa-1cf49f25321c
+![演示视频](https://github.com/user-attachments/assets/d64de3c8-a1bf-42d3-92aa-1cf49f25321c)
+
 （窗口拖拽和最小化时的果冻特效因为与录屏软件冲突，所以没有在这里展示）
 
 # Fedora 43：DE 配置安装
