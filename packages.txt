@@ -4,3 +4,4 @@ fzf
 kitty
 wofi
 neovim
+cava

@@ -60,52 +60,19 @@ for config in $configs; do
   echo -e "${GREEN}已恢复 $config 配置到 $target_dir${NC}"
 done
 
-# 5. 安装 FiraCode Nerd 字体
-echo -e "${GREEN}>>> 安装 FiraCode Nerd 字体...${NC}"
-if [ -d "fonts/FiraCode" ]; then
+# 5. 安装所有字体（复制 fonts 目录全部内容）
+echo -e "${GREEN}>>> 安装字体...${NC}"
+if [ -d "fonts" ]; then
   mkdir -p ~/.local/share/fonts
-  cp -r fonts/FiraCode ~/.local/share/fonts/
+  # 复制所有内容（包括隐藏文件）到目标目录
+  cp -r fonts/. ~/.local/share/fonts/
   fc-cache -fv
   echo -e "${GREEN}字体安装完成${NC}"
 else
-  echo -e "${YELLOW}警告: fonts/FiraCode 目录不存在，跳过字体安装。${NC}"
+  echo -e "${YELLOW}警告: fonts 目录不存在，跳过字体安装。${NC}"
 fi
 
-# 6. 恢复 GNOME 扩展本体
-echo -e "${GREEN}>>> 恢复 GNOME 扩展文件...${NC}"
-if [ -d "gnome-extensions" ] && [ "$(ls -A gnome-extensions)" ]; then
-  mkdir -p ~/.local/share/gnome-shell/extensions
-  cp -r gnome-extensions/* ~/.local/share/gnome-shell/extensions/
-  echo -e "${GREEN}GNOME 扩展文件已恢复${NC}"
-else
-  echo -e "${YELLOW}警告: gnome-extensions 目录为空或不存在，跳过。${NC}"
-fi
-
-# 7. 恢复 GNOME 扩展设置 (dconf)
-if [ -f "gnome-extensions.conf" ]; then
-  echo -e "${GREEN}>>> 加载 GNOME 扩展设置...${NC}"
-  dconf load /org/gnome/shell/extensions/ <gnome-extensions.conf
-  echo -e "${GREEN}GNOME 扩展设置已恢复${NC}"
-else
-  echo -e "${YELLOW}警告: gnome-extensions.conf 不存在，跳过。${NC}"
-fi
-
-# 显式启用所有 GNOME 扩展（确保扩展生效）
-echo -e "${GREEN}>>> 启用 GNOME 扩展...${NC}"
-if [ -d "gnome-extensions" ] && [ "$(ls -A gnome-extensions)" ]; then
-  for ext_dir in gnome-extensions/*/; do
-    uuid=$(basename "$ext_dir")
-    if gnome-extensions enable "$uuid" 2>/dev/null; then
-      echo "已启用: $uuid"
-    else
-      echo -e "${YELLOW}无法启用 $uuid (可能不兼容当前GNOME版本)${NC}"
-    fi
-  done
-else
-  echo -e "${YELLOW}没有扩展需要启用。${NC}"
-fi
-
-# 8. 将自定义 Bash 函数直接写入 ~/.bashrc
+# 6. 将自定义 Bash 函数直接写入 ~/.bashrc
 if [ -f "bashrc_custom.sh" ]; then
   echo -e "${GREEN}>>> 将自定义函数添加到 ~/.bashrc...${NC}"
   # 创建一个标记，防止重复添加
@@ -121,8 +88,17 @@ else
   echo -e "${YELLOW}警告: bashrc_custom.sh 不存在，跳过。${NC}"
 fi
 
-# 9. 提示完成
-echo -e "${GREEN}>>> 全部恢复完成！${NC}"
+# 7. 复制桌面主题
+echo -e "${GREEN}>>> 复制桌面主题 Nordic-Polar...${NC}"
+if [ -d "Nordic-Polar" ]; then
+  mkdir -p ~/.themes
+  cp -r Nordic-Polar ~/.themes/
+  echo -e "${GREEN}主题复制完成${NC}"
+else
+  echo -e "${YELLOW}警告: Nordic-Polar 目录不存在，跳过主题复制。${NC}"
+fi
+
+# 8. 提示完成
+echo -e "${GREEN}>>> 脚本安装部分已完成！${NC}"
 echo -e "${YELLOW}提示: 首次打开 nvim 时，Lazy.nvim 会自动下载并安装所有插件，请耐心等待。${NC}"
-echo -e "${GREEN}请重启 GNOME Shell 以应用扩展。${NC}"
-echo -e "${YELLOW}注意: 配置文件已复制到 ~/.config/，你可以安全删除本仓库目录（~/de_dotfiles）。${NC}"
+echo -e "${YELLOW}注意: 配置文件已复制到 ~/.config/，你可以安全删除本仓库目录。${NC}"

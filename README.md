@@ -10,9 +10,11 @@
 
 | 项目 | 说明 |
 | :--- | :--- |
+| **常用工具** | kitty、yazi、fastfetch、wofi、LazyVim、fzf、qqMusicBox、snipaste等 |
 | **配置文件** | 包含了对 kitty、yazi、fastfetch、wofi、Neovim（LazyVim）的配置 |
 | **GNOME 扩展** | 所有扩展本体 + 设置 |
-| **字体** | FiraCode Nerd Font |
+| **主题** | Nordic-Polar |
+| **字体** | FiraCode、wqy-microhei、wqy-zenhei |
 | **自定义 Bash 函数** | `yy`、`fo`、`ff` |
 
 ## 安装流程
@@ -31,4 +33,27 @@
    ./install.sh
    ```
 
-3. 脚本执行完毕后，重启 GNOME Shell 以生效扩展，可安全删除本仓库目录。
+3. 脚本执行完毕后，下载安装 `Extension Manager`，选择下列扩展安装：
+
+| 扩展                                         | 功能                   |
+| :------------------------------------------- | :--------------------- |
+| AppIndicator and KStatusNotifierItem Support | 系统托盘图标支持       |
+| Bluetooth Battery Meter                      | 蓝牙设备电量显示       |
+| Burn My Windows                              | 窗口动画特效（燃烧等） |
+| Compiz alike magic lamp effect               | 魔法灯缩放动画         |
+| Compiz windows effect                        | Compiz风格窗口特效     |
+| Desktop Cube                                 | 3D桌面立方体           |
+| Emoji Copy                                   | Emoji复制工具          |
+| Quick Close in Overview                      | 概览中中键关闭窗口     |
+| Tiling Assistant                             | 窗口平铺辅助           |
+| TopHat                                       | 系统资源监控，顶栏显示 |
+| User Themes                                  | 自定义主题支持         |
+
+在 Burn My Windows 扩展中仅选择 Energize B 样式，并调整持续时间为 600 ms。
+
+4. 下载安装 `优化` 工具，即 `Tweaks` ，在`外观-shell`里选择 Nordic-Polar 主题进行应用。
+5. 根据 [qqMusicBox](https://gitee.com/ysdlm/qqmusicbox)，先创建 conda 环境，然后编译出命令行 qq音乐工具。平时可以搭配 cava 音乐律动条使用。具体效果如下所示：
+
+<img src="/home/cyzhu/.config/Typora/typora-user-images/image-20260802183511584.png" alt="image-20260802183511584" style="zoom: 20%;" />
+
+6. 从 [Snipaste](https://github.com/Snipaste/feedback) 下载 Snipaste，并把`/home/cyzhu/software/Snipaste-2.11.3-x86_64.AppImage snip` 绑定到 F1 快捷键，设置开机自启，即可使用 F1 全局快捷键进行截屏。
