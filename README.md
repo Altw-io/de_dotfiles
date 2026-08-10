@@ -2,7 +2,7 @@
 
 <video src="https://github.com/user-attachments/assets/a7a4d6f9-1075-4858-9722-df522a05bc73" controls width="100%"></video>
 
-窗口拖拽和最小化时有果冻特效的扩展因为与录屏软件冲突，所以没有在这里展示，且由于录制有点麻烦，此处仅展示了第一版的内容。
+两个 compiz 特效的扩展因为与录屏软件冲突，所以没有在这里展示。由于录制有点麻烦，此处仅展示了第一版的内容。
 
 # Fedora 43: DE 配置安装
 
@@ -50,6 +50,8 @@
 | User Themes                                  | 自定义主题支持         |
 
 在 Burn My Windows 扩展中仅选择 Energize B 样式，并调整持续时间为 600 ms。
+
+在 AppIndicator 扩展中设置左对齐放置，与右侧内容分开，不显得拥挤。
 
 4. 下载安装 `优化` 工具，即 `Tweaks` ，在`外观-shell`里选择 Nordic-Polar 主题进行应用。
 5. 根据 [qqMusicBox](https://gitee.com/ysdlm/qqmusicbox)，先创建 conda 环境，然后编译出命令行 qq音乐工具。平时可以搭配 cava 音乐律动条使用。具体效果如下所示：
